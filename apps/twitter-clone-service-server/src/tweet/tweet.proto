@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+                 package tweet;
+service TweetService {
+ rpc createTweet (TweetCreateInput) returns (Tweet) {}
+rpc tweets (findManyParams) returns (stream Tweet) {}
+rpc tweet (TweetWhereUniqueInput) returns (Tweet) {}
+rpc updateTweet (TweetUpdateInput) returns (Tweet) {}
+rpc deleteTweet (TweetWhereUniqueInput) returns (Tweet) {}
+rpc findManyTweet (TweetWhereUniqueInput) returns (stream Like) {}
+rpc updateTweet (LikeParams) returns (stream Like) {}
+rpc connectTweet (LikeParams) returns (Like) {}
+rpc disconnectTweet (LikeParams) returns (Like) {} 
+ }
+message TweetCreateInput {
+string content = 1;
+string createdAt = 2;
+string id = 3;
+repeated Like likes = 4;
+string updatedAt = 5;
+};
+message Tweet {
+string content = 1;
+string createdAt = 2;
+string id = 3;
+repeated Like likes = 4;
+string updatedAt = 5;
+};
+message TweetWhereUniqueInput {
+string content = 1;
+string createdAt = 2;
+string id = 3;
+repeated Like likes = 4;
+string updatedAt = 5;
+};
+message TweetUpdateInput {
+string content = 1;
+string createdAt = 2;
+string id = 3;
+repeated Like likes = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};
+message Like {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message LikeWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message LikeParams {
+TweetWhereUniqueInput tweetWhereUniqueInput = 1;
+LikeWhereUniqueInput likeWhereUniqueInput = 2;
+};
