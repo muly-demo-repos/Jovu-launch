@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+                 package hashtag;
+service HashtagService {
+ rpc createHashtag (HashtagCreateInput) returns (Hashtag) {}
+rpc hashtags (findManyParams) returns (stream Hashtag) {}
+rpc hashtag (HashtagWhereUniqueInput) returns (Hashtag) {}
+rpc updateHashtag (HashtagUpdateInput) returns (Hashtag) {}
+rpc deleteHashtag (HashtagWhereUniqueInput) returns (Hashtag) {}
+rpc findManyHashtag (HashtagWhereUniqueInput) returns (stream Tweet) {}
+rpc updateHashtag (TweetParams) returns (stream Tweet) {}
+rpc connectHashtag (TweetParams) returns (Tweet) {}
+rpc disconnectHashtag (TweetParams) returns (Tweet) {} 
+ }
+message HashtagCreateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+repeated Tweet tweets = 4;
+string updatedAt = 5;
+};
+message Hashtag {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+repeated Tweet tweets = 4;
+string updatedAt = 5;
+};
+message HashtagWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+repeated Tweet tweets = 4;
+string updatedAt = 5;
+};
+message HashtagUpdateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+repeated Tweet tweets = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};
+message Tweet {
+string content = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message TweetWhereUniqueInput {
+string content = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message TweetParams {
+HashtagWhereUniqueInput hashtagWhereUniqueInput = 1;
+TweetWhereUniqueInput tweetWhereUniqueInput = 2;
+};
