@@ -1,0 +1,8 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type HashtagOrderByInput = {
+  createdAt?: SortOrder;
+  id?: SortOrder;
+  name?: SortOrder;
+  updatedAt?: SortOrder;
+};
