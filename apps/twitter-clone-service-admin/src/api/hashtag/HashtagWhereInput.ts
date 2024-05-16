@@ -4,6 +4,7 @@ import { TweetListRelationFilter } from "../tweet/TweetListRelationFilter";
 
 export type HashtagWhereInput = {
   id?: StringFilter;
+  metadata?: StringNullableFilter;
   name?: StringNullableFilter;
   tweets?: TweetListRelationFilter;
 };

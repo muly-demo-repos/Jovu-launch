@@ -41,6 +41,7 @@ export class HashtagGrpcControllerBase {
       select: {
         createdAt: true,
         id: true,
+        metadata: true,
         name: true,
         updatedAt: true,
       },
@@ -58,6 +59,7 @@ export class HashtagGrpcControllerBase {
       select: {
         createdAt: true,
         id: true,
+        metadata: true,
         name: true,
         updatedAt: true,
       },
@@ -76,6 +78,7 @@ export class HashtagGrpcControllerBase {
       select: {
         createdAt: true,
         id: true,
+        metadata: true,
         name: true,
         updatedAt: true,
       },
@@ -103,6 +106,7 @@ export class HashtagGrpcControllerBase {
         select: {
           createdAt: true,
           id: true,
+          metadata: true,
           name: true,
           updatedAt: true,
         },
@@ -130,6 +134,7 @@ export class HashtagGrpcControllerBase {
         select: {
           createdAt: true,
           id: true,
+          metadata: true,
           name: true,
           updatedAt: true,
         },
