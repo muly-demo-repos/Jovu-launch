@@ -22,6 +22,7 @@ import { UpdateOrderArgs } from "./UpdateOrderArgs";
 import { DeleteOrderArgs } from "./DeleteOrderArgs";
 import { Customer } from "../../customer/base/Customer";
 import { Product } from "../../product/base/Product";
+import { OrderComputeArgs } from "../OrderComputeArgs";
 import { OrderService } from "../order.service";
 @graphql.Resolver(() => Order)
 export class OrderResolverBase {
@@ -147,5 +148,13 @@ export class OrderResolverBase {
       return null;
     }
     return result;
+  }
+
+  @graphql.Query(() => Number)
+  async ComputeOrder(
+    @graphql.Args()
+    args: OrderComputeArgs
+  ): Promise<number> {
+    return this.service.ComputeOrder(args);
   }
 }
