@@ -23,6 +23,7 @@ import { DeleteCustomerArgs } from "./DeleteCustomerArgs";
 import { OrderFindManyArgs } from "../../order/base/OrderFindManyArgs";
 import { Order } from "../../order/base/Order";
 import { Address } from "../../address/base/Address";
+import { CustomerComputeArgs } from "../CustomerComputeArgs";
 import { CustomerService } from "../customer.service";
 @graphql.Resolver(() => Customer)
 export class CustomerResolverBase {
@@ -143,5 +144,13 @@ export class CustomerResolverBase {
       return null;
     }
     return result;
+  }
+
+  @graphql.Query(() => Number)
+  async ComputeCustomer(
+    @graphql.Args()
+    args: CustomerComputeArgs
+  ): Promise<number> {
+    return this.service.ComputeCustomer(args);
   }
 }

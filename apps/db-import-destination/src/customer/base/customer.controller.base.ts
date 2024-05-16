@@ -25,6 +25,7 @@ import { CustomerUpdateInput } from "./CustomerUpdateInput";
 import { OrderFindManyArgs } from "../../order/base/OrderFindManyArgs";
 import { Order } from "../../order/base/Order";
 import { OrderWhereUniqueInput } from "../../order/base/OrderWhereUniqueInput";
+import { CustomerComputeArgs } from "../CustomerComputeArgs";
 
 export class CustomerControllerBase {
   constructor(protected readonly service: CustomerService) {}
@@ -287,5 +288,22 @@ export class CustomerControllerBase {
       data,
       select: { id: true },
     });
+  }
+
+  @common.Post("/:id/compute-customer")
+  @swagger.ApiOkResponse({
+    type: Number,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async ComputeCustomer(
+    @common.Body()
+    body: CustomerComputeArgs
+  ): Promise<number> {
+    return this.service.ComputeCustomer(body);
   }
 }

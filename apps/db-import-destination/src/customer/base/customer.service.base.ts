@@ -18,6 +18,8 @@ import {
   Address as PrismaAddress,
 } from "@prisma/client";
 
+import { CustomerComputeArgs } from "../CustomerComputeArgs";
+
 export class CustomerServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
 
@@ -68,5 +70,8 @@ export class CustomerServiceBase {
         where: { id: parentId },
       })
       .address();
+  }
+  async ComputeCustomer(args: CustomerComputeArgs): Promise<number> {
+    throw new Error("Not implemented");
   }
 }
