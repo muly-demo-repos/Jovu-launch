@@ -18,6 +18,8 @@ import {
   Product as PrismaProduct,
 } from "@prisma/client";
 
+import { OrderComputeArgs } from "../OrderComputeArgs";
+
 export class OrderServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
 
@@ -65,5 +67,8 @@ export class OrderServiceBase {
         where: { id: parentId },
       })
       .product();
+  }
+  async ComputeOrder(args: OrderComputeArgs): Promise<number> {
+    throw new Error("Not implemented");
   }
 }

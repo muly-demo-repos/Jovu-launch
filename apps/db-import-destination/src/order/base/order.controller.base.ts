@@ -22,6 +22,7 @@ import { Order } from "./Order";
 import { OrderFindManyArgs } from "./OrderFindManyArgs";
 import { OrderWhereUniqueInput } from "./OrderWhereUniqueInput";
 import { OrderUpdateInput } from "./OrderUpdateInput";
+import { OrderComputeArgs } from "../OrderComputeArgs";
 
 export class OrderControllerBase {
   constructor(protected readonly service: OrderService) {}
@@ -238,5 +239,22 @@ export class OrderControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.Post("/:id/compute-order")
+  @swagger.ApiOkResponse({
+    type: Number,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async ComputeOrder(
+    @common.Body()
+    body: OrderComputeArgs
+  ): Promise<number> {
+    return this.service.ComputeOrder(body);
   }
 }
