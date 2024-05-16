@@ -53,6 +53,7 @@ model Like {
 model Hashtag {
   createdAt DateTime @default(now())
   id        String   @id @default(cuid())
+  metadata  String?
   name      String?
   tweets    Tweet[]
   updatedAt DateTime @updatedAt

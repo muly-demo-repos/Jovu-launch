@@ -39,6 +39,17 @@ class HashtagWhereInput {
   @Field(() => StringNullableFilter, {
     nullable: true,
   })
+  metadata?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
   name?: StringNullableFilter;
 
   @ApiProperty({

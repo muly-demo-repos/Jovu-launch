@@ -14,6 +14,7 @@ export const HashtagList = (props: ListProps): React.ReactElement => {
       <Datagrid rowClick="show">
         <DateField source="createdAt" label="Created At" />
         <TextField label="ID" source="id" />
+        <TextField label="metadata" source="metadata" />
         <TextField label="name" source="name" />
         <DateField source="updatedAt" label="Updated At" />
       </Datagrid>

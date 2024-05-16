@@ -15,6 +15,7 @@ export const HashtagCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
+        <TextInput label="metadata" multiline source="metadata" />
         <TextInput label="name" source="name" />
         <ReferenceArrayInput
           source="tweets"

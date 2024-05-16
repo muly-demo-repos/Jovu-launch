@@ -15,30 +15,34 @@ rpc disconnectHashtag (TweetParams) returns (Tweet) {}
 message HashtagCreateInput {
 string createdAt = 1;
 string id = 2;
-string name = 3;
-repeated Tweet tweets = 4;
-string updatedAt = 5;
+string metadata = 3;
+string name = 4;
+repeated Tweet tweets = 5;
+string updatedAt = 6;
 };
 message Hashtag {
 string createdAt = 1;
 string id = 2;
-string name = 3;
-repeated Tweet tweets = 4;
-string updatedAt = 5;
+string metadata = 3;
+string name = 4;
+repeated Tweet tweets = 5;
+string updatedAt = 6;
 };
 message HashtagWhereUniqueInput {
 string createdAt = 1;
 string id = 2;
-string name = 3;
-repeated Tweet tweets = 4;
-string updatedAt = 5;
+string metadata = 3;
+string name = 4;
+repeated Tweet tweets = 5;
+string updatedAt = 6;
 };
 message HashtagUpdateInput {
 string createdAt = 1;
 string id = 2;
-string name = 3;
-repeated Tweet tweets = 4;
-string updatedAt = 5;
+string metadata = 3;
+string name = 4;
+repeated Tweet tweets = 5;
+string updatedAt = 6;
 };
 message findManyParams {
 

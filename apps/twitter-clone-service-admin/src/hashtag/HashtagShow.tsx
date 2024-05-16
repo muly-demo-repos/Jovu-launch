@@ -20,6 +20,7 @@ export const HashtagShow = (props: ShowProps): React.ReactElement => {
       <SimpleShowLayout>
         <DateField source="createdAt" label="Created At" />
         <TextField label="ID" source="id" />
+        <TextField label="metadata" source="metadata" />
         <TextField label="name" source="name" />
         <DateField source="updatedAt" label="Updated At" />
         <ReferenceManyField reference="Tweet" target="hashtagId" label="Tweets">
